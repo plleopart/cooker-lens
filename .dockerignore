@@ -1,0 +1,33 @@
+# Entornos virtuales
+.venv/
+env/
+venv/
+
+# Archivos Python innecesarios
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos de entorno
+.env
+
+# Datos externos o temporales
+sources/
+
+# Archivos de logs, backups, temporales
+*.log
+*.tmp
+*.bak
+
+# Configs de IDEs/editors
+.vscode/
+.idea/
+*.swp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
