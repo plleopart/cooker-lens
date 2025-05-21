@@ -15,13 +15,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     user_full_name = update.message.from_user.full_name
 
     print(f"[{user_full_name}] 📩 Received message: {message_text} - user_id: {user_id}")
-    print("White list:", TELEGRAM_WHITE_LIST)
-    print("Black list:", TELEGRAM_BLACK_LIST)
+
     if user_id in TELEGRAM_BLACK_LIST:
         await update.message.reply_text("🚫 You are not allowed to use this bot.")
         return
 
-    if len(TELEGRAM_WHITE_LIST) > 0 and user_id not in TELEGRAM_WHITE_LIST:
+    if len(TELEGRAM_WHITE_LIST) > 0 and str(user_id) not in TELEGRAM_WHITE_LIST:
         await update.message.reply_text("🚫 You are not allowed to use this bot.")
         return
 
