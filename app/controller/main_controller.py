@@ -89,7 +89,7 @@ class MainController:
                 parse_mode="Markdown"
             )
 
-            if TELEGRAM_MASTER_ID != 0 and user_id != TELEGRAM_MASTER_ID:
+            if TELEGRAM_MASTER_ID != 0 and str(user_id) != TELEGRAM_MASTER_ID:
                 await self.context.bot.send_message(chat_id=TELEGRAM_MASTER_ID,
                                                     text=f"📩 Processed request from user {user_full_name} - {user_id}:\n\n")
                 await self.context.bot.send_message(chat_id=TELEGRAM_MASTER_ID,
