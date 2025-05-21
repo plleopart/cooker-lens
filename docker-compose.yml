@@ -1,0 +1,11 @@
+services:
+  cooker-lens:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./app/sources:/app/sources
+    restart: unless-stopped
+    command: python run.py
