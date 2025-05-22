@@ -53,7 +53,7 @@ Just send a TikTok link (Instagram coming soon) and the bot will:
 
 ```bash
 git clone https://github.com/plleopart/cooker-lens
-cd mealie-ai-bot
+cd cooker-lens
 ```
 
 ### 2. Configure Environment Variables
@@ -119,8 +119,8 @@ TELEGRAM_BLACK_LIST=
 ### 🐳 Docker
 
 ```bash
-docker build -t mealie-ai-bot .
-docker run --env-file .env -v $(pwd)/models:/models mealie-ai-bot
+docker build -t cooker-lens .
+docker run --env-file .env -v $(pwd)/models:/models cooker-lens
 ```
 
 ### 🐳 Docker Compose
@@ -130,7 +130,7 @@ You can run the bot easily using Docker Compose. Example `docker-compose.yml`:
 ```yaml
 version: '3.8'
 services:
-  mealie-ai-bot:
+  cooker-lens:
     build: .
     env_file:
       - .env
