@@ -16,14 +16,19 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     print(f"[{user_full_name}] 📩 Received message: {message_text} - user_id: {user_id}")
 
-    if user_id in TELEGRAM_BLACK_LIST:
+    if str(user_id) in TELEGRAM_BLACK_LIST:
         await update.message.reply_text("🚫 You are not allowed to use this bot.")
         return
 
-    if len(TELEGRAM_WHITE_LIST) > 0 and str(user_id) not in TELEGRAM_WHITE_LIST:
+    # Uncomment the following lines if you want to implement a whitelist
+    if len(TELEGRAM_WHITE_LIST) == 0 or str(user_id) in TELEGRAM_WHITE_LIST:
+        await process_it(update, context, message_text)
+    else:
         await update.message.reply_text("🚫 You are not allowed to use this bot.")
         return
 
+
+async def process_it(update: Update, context: ContextTypes.DEFAULT_TYPE, message_text: str) -> None:
     urls = re.findall(r'(https?://\S+)', message_text)
 
     if urls:
