@@ -33,8 +33,9 @@ class MainController:
             downloader = MediaDownloader(self.source_url)
             await self.update.message.reply_text("📥 Downloading media from URL...")
 
-            description = downloader.get_description()
             filename = downloader.download()
+            description = downloader.get_description()
+
             print(f"[{user_full_name}] ✅ Media downloaded: {filename}")
 
             await self.update.message.reply_text(f"✅ Media downloaded", parse_mode="Markdown")
@@ -48,6 +49,12 @@ class MainController:
             await self.update.message.reply_text("🖼️ Extracting frames from video...")
             images = media_processor.extract_frames()
             print(f"[{user_full_name}] 🎞️ Extracted {len(images)} frames")
+
+            miniature = downloader.get_miniature()
+            if miniature:
+                images.append(miniature)
+                print(f"[{user_full_name}] 🖼️ Miniature added to the list of images")
+                await self.update.message.reply_text("🖼️ Miniature added to the list of images")
 
             api = APIController()
             api.set_source_url(self.source_url)

@@ -1,5 +1,6 @@
 from app.config import ALLOWED_MEDIA_ORIGINS_LIST
 from app.downloader.downloader import Downloader
+from app.downloader.instagram_downloader import InstagramDownloader
 from app.downloader.tiktok_downloader import TikTokDownloader
 
 
@@ -19,8 +20,11 @@ class MediaDownloader(Downloader):
     def download(self):
         return self.downloader.download()
 
+    def get_miniature(self) -> str | None:
+        return self.downloader.get_miniature()
+
     def get_downloader(self) -> Downloader:
         if "tiktok" in self.url:
             return TikTokDownloader(self.url)
         elif "instagram" in self.url:
-            raise NotImplementedError("Instagram downloader is not implemented yet.")
+            return InstagramDownloader(self.url)

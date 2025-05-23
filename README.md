@@ -11,7 +11,7 @@
 ## 🚀 Overview
 
 **Cooker-Lens** is an **AI-powered Telegram bot** that automates recipe creation in Mealie from cooking videos.
-Just send a TikTok link (Instagram coming soon) and the bot will:
+Just send a TikTok or Instagram link and the bot will:
 
 - Download and transcribe the video.
 - Extract key process images.
@@ -25,7 +25,7 @@ Just send a TikTok link (Instagram coming soon) and the bot will:
 
 | Feature                 | Description                                                          |
 |-------------------------|----------------------------------------------------------------------|
-| 🎥 Video Download       | Downloads videos from TikTok (Instagram coming soon)                 |
+| 🎥 Video Download       | Downloads videos from TikTok and Instagram                           |
 | 📝 Speech-to-Text       | Transcribes audio to text using Vosk                                 |
 | 🖼️ Frame Extraction    | Extracts key images from the video                                   |
 | 🤖 AI Analysis          | Uses OpenAI to structure recipe, metadata, and select the best image |
@@ -44,6 +44,7 @@ Just send a TikTok link (Instagram coming soon) and the bot will:
 - **Vosk (Speech Recognition)**
 - **Pillow (Image Processing)**
 - **pyktok (TikTok Downloading)**
+- **Instaloader (Instagram Downloading)**
 
 ---
 
@@ -169,7 +170,7 @@ python run.py
 ## 🤖 Usage
 
 1. **Start a chat** with your Telegram bot.
-2. **Send a TikTok video link**.
+2. **Send a TikTok or Instagram video link**.
 3. The bot will:
     - Download and process the video.
     - Transcribe and analyze the content.

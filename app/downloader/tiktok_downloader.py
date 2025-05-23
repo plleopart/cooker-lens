@@ -1,8 +1,11 @@
-import pyktok as pyk
 import os
-from app.config import TEMP_BASE_DIR, PYKTOK_BROWSER
-from app.downloader.downloader import Downloader
 import shutil
+
+import pyktok as pyk
+
+from app.config import TEMP_BASE_DIR
+from app.downloader.downloader import Downloader
+
 
 class TikTokDownloader(Downloader):
     def __init__(self, url: str):
@@ -32,3 +35,6 @@ class TikTokDownloader(Downloader):
         shutil.copy2(latest_file, os.path.join(target_path, latest_filename))
         os.remove(latest_file)
         return latest_filename
+
+    def get_miniature(self) -> str | None:
+        return None

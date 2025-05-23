@@ -26,3 +26,10 @@ class Downloader(ABC):
         Download the file and return filename.
         """
         pass
+
+    @abstractmethod
+    def get_miniature(self) -> str | None:
+        """
+        Get the miniature of the post.
+        """
+        pass
